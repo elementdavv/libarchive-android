@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+
+buildscript {
+	repositories {
+		if (project.hasProperty('MAVEN_REPO')) {
+			maven { url MAVEN_REPO }
+		} else {
+			maven { url "file://${System.properties['user.home']}/MAVEN" }
+		}
+		google()
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'com.android.tools.build:gradle:8.6.1'
+	}
+}
+
+allprojects {
+	repositories {
+		if (project.hasProperty('MAVEN_REPO')) {
+			maven { url MAVEN_REPO }
+		} else {
+			maven { url "file://${System.properties['user.home']}/MAVEN" }
+		}
+		google()
+		mavenCentral()
+	}
+}
+android {
+	compileSdkVersion 35
+	ndkVersion '28.2.13676358'
+
+	defaultConfig {
+        namespace 'net.timelegend.libarchive'
+		minSdkVersion 21
+		targetSdkVersion 35
+        // externalNativeBuild.cmake.abiFilters 'arm64-v8a', 'x86_64'
+    }
+    externalNativeBuild {
+        cmake {
+            path 'CMakeLists.txt'
+        }
+    }
+}
