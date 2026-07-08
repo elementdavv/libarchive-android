@@ -1,5 +1,8 @@
 apply plugin: 'com.android.library'
 
+group = 'net.timelegend.libarchive'
+version = '1.0'
+
 buildscript {
 	repositories {
 		if (project.hasProperty('MAVEN_REPO')) {
@@ -26,15 +29,16 @@ allprojects {
 		mavenCentral()
 	}
 }
+
 android {
 	compileSdkVersion 35
 	ndkVersion '28.2.13676358'
 
 	defaultConfig {
-        namespace 'net.timelegend.libarchive'
+		namespace 'net.timelegend.libarchive.libarchive'
 		minSdkVersion 21
 		targetSdkVersion 35
-        // externalNativeBuild.cmake.abiFilters 'arm64-v8a', 'x86_64'
+		// externalNativeBuild.cmake.abiFilters 'arm64-v8a'
     }
     externalNativeBuild {
         cmake {
