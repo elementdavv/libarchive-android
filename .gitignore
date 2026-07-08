@@ -53,3 +53,8 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# gradle cmake build
+.cxx
+.gradle
+build
