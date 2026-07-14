@@ -41,7 +41,6 @@ android {
 
 		// Set ABI_FILTERS in your gradle.properties file
 		if (project.hasProperty('ABI_FILTERS')) {
-			ndk.abiFilters = []
 			externalNativeBuild.cmake.abiFilters = []
 			externalNativeBuild.cmake.abiFilters.addAll(ABI_FILTERS.split(',').collect{it as String})
 		}
